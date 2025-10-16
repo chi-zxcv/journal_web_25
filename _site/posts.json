@@ -1,0 +1,58 @@
+[
+
+
+  {
+    "url": "/notes/2025/10/10/tamsui/",
+    "title": "10/10 國慶午後 — 在淡水的另一種慶祝方式",
+    "date": "2025-10-10",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "event",
+    "country": "TW",
+    "city": "新北市淡水區",
+    "location": "",
+    "tags": ["國慶","淡水","出遊","生活紀錄"],
+    "summary": "國慶日的午後，我們沒有升旗、沒有煙火，選擇在陽光與海風裡用另一種方式紀念這一天。",
+    "cover": "/assets/images/2025-10-10-tamsui/img1.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/notes/2025/09/22/first-entry/",
+    "title": "華山設計展・快閃一日遊",
+    "date": "2025-09-22",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "09",
+    "type": "event",
+    "country": "TW",
+    "city": "台北市",
+    "location": "台北｜華山文創園區",
+    "tags": ["設計展","朋友聚","台北"],
+    "summary": "用半天密集看展，收集了不少靈感，最後在附近咖啡店作結。",
+    "cover": "/assets/images/sample/cover.jpg",
+    "gallery": ["/assets/images/sample/p1.jpg","/assets/images/sample/p2.jpg"]
+  },
+
+  {
+    "url": "/notes/2025/08/17/runway-first-suit/",
+    "title": "第一次穿上西裝走秀｜突破自己",
+    "date": "2025-08-17",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "08",
+    "type": "event",
+    "country": "",
+    "city": "",
+    "location": "",
+    "tags": ["西裝","走秀","自信","成長"],
+    "summary": "第一次在那麼多人的場合走秀，穿上西裝的瞬間被自己帥到。怦然心跳、腎上腺素拉滿——原來勇敢踏出去，就會看到全新的自己。",
+    "cover": "/assets/images/2025-08-17-runway/cover.jpg",
+    "gallery": []
+  }
+
+]

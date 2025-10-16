@@ -1,0 +1,29 @@
+{%- assign thumb = post.cover -%}
+{%- if (thumb == nil or thumb == '') and post.gallery and post.gallery.size > 0 -%}
+  {%- assign thumb = post.gallery[0] -%}
+{%- endif -%}
+{%- if (thumb == nil or thumb == '') -%}
+  {%- assign thumb = '/assets/images/placeholder.jpg' -%}
+{%- endif -%}
+
+<article class="post-item">
+  <a href="{{ post.url | relative_url }}" aria-label="{{ post.title }}">
+    <img class="post-thumb" src="{{ thumb | relative_url }}" alt="thumbnail of {{ post.title }}">
+  </a>
+  <div>
+    <h3 class="post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+    <div class="post-meta">
+      {{ post.date | date: "%Y-%m-%d" }}
+      {%- if post.city %} · {{ post.city }}{% elsif post.location %} · {{ post.location }}{% endif -%}
+      {%- if post.type %} · {{ post.type | upcase }}{% endif -%}
+    </div>
+    {%- if post.summary %}<p class="post-excerpt">{{ post.summary }}</p>{% endif -%}
+    {%- if post.tags %}
+      <div class="tags">
+        {%- for t in post.tags -%}
+          <span class="tag">#{{ t }}</span>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+</article>

@@ -1,0 +1,55 @@
+---
+layout: default
+title: 首頁
+pagination: enabled
+---
+<section class="hero">
+  <div id="particles-hero"></div>
+  <div class="hero-content">
+    <h2 style="margin:4px 0 8px;">玩樂與活動筆記</h2>
+    <p style="margin:0 0 10px; color:#334155;">把出走與參與留下來，讓回憶能被搜尋、能被延續。</p>
+    <div>
+      <a href="{{ '/tags' | relative_url }}" style="margin-right:8px;"># 標籤</a>
+      <a href="{{ '/archive' | relative_url }}">📅 歸檔時間軸</a>
+    </div>
+  </div>
+</section>
+
+<form method="get" style="margin:12px 0 20px">
+  <label>類型：
+    <select name="type" onchange="this.form.submit()">
+      <option value="">全部</option>
+      <option value="event">event</option>
+      <option value="trip">trip</option>
+      <option value="game">game</option>
+    </select>
+  </label>
+  <label style="margin-left:8px">關鍵字：
+    <input type="text" name="q" placeholder="輸入標題/標籤/地點">
+  </label>
+  <button type="submit">篩選</button>
+</form>
+
+{%- assign notes = paginator.posts -%}
+{%- if page.type and page.type != "" -%}
+  {%- assign notes = notes | where: "type", page.type -%}
+{%- endif -%}
+{%- if page.q and page.q != "" -%}
+  {%- assign notes = notes | where_exp: "item", "item.title contains page.q or item.tags contains page.q or item.location contains page.q" -%}
+{%- endif -%}
+
+<section class="posts-list">
+  {% for post in notes %}
+    {% include card-small.html post=post %}
+  {% endfor %}
+</section>
+
+<div class="pager" style="display:flex;gap:8px;justify-content:center;margin:18px 0;">
+  {% if paginator.previous_page %}
+    <a href="{{ paginator.previous_page_path | relative_url }}">← 上一頁</a>
+  {% endif %}
+  <span>第 {{ paginator.page }} / {{ paginator.total_pages }} 頁</span>
+  {% if paginator.next_page %}
+    <a href="{{ paginator.next_page_path | relative_url }}">下一頁 →</a>
+  {% endif %}
+</div>

@@ -1,0 +1,48 @@
+---
+layout: default
+---
+<article class="post">
+  <h2>{{ page.title }}</h2>
+  <p class="note-meta">
+    {{ page.date | date: "%Y-%m-%d" }}
+    {% if page.city %} · {{ page.city }}{% elsif page.location %} · {{ page.location }}{% endif %}
+    {% if page.type %} · {{ page.type | upcase }}{% endif %}
+    {% if page.rating %} · ★ {{ page.rating }}/5{% endif %}
+  </p>
+
+  {% if page.cover %}
+    <p><img src="{{ page.cover | relative_url }}" alt="" class="cover"></p>
+  {% endif %}
+
+  {% if page.summary %}
+    <blockquote>{{ page.summary }}</blockquote>
+  {% endif %}
+
+  {{ content }}
+
+  {% if page.gallery %}
+    <h3>相片</h3>
+    <div class="gallery">
+      {% for img in page.gallery %}
+        <img src="{{ img | relative_url }}" alt="gallery" class="gallery-img">
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if page.tags %}
+    <p class="tags">
+      {% for t in page.tags %}
+      <span class="tag">#{{ t }}</span>
+      {% endfor %}
+    </p>
+  {% endif %}
+
+  {% if page.links %}
+    <h3>相關連結</h3>
+    <ul>
+      {% for l in page.links %}
+      <li><a href="{{ l.url }}" target="_blank" rel="noreferrer">{{ l.title }}</a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

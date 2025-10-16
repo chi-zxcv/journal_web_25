@@ -1,0 +1,26 @@
+---
+layout: null
+permalink: /posts.json
+---
+[
+{% assign posts = site.posts %}
+{% for post in posts %}
+  {
+    "url": "{{ post.url | relative_url }}",
+    "title": {{ post.title | jsonify }},
+    "date": "{{ post.date | date: '%Y-%m-%d' }}",
+    "start_date": {{ post.start_date | default: "" | jsonify }},
+    "end_date": {{ post.end_date | default: "" | jsonify }},
+    "year": "{{ post.date | date: '%Y' }}",
+    "month": "{{ post.date | date: '%m' }}",
+    "type": {{ post.type | default: "" | jsonify }},
+    "country": {{ post.country | default: "" | jsonify }},
+    "city": {{ post.city | default: "" | jsonify }},
+    "location": {{ post.location | default: "" | jsonify }},
+    "tags": {% if post.tags %}{{ post.tags | jsonify }}{% else %}[]{% endif %},
+    "summary": {{ post.summary | default: "" | strip_html | jsonify }},
+    "cover": {{ post.cover | default: "" | jsonify }},
+    "gallery": {% if post.gallery %}{{ post.gallery | jsonify }}{% else %}[]{% endif %}
+  }{% unless forloop.last %},{% endunless %}
+{% endfor %}
+]

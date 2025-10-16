@@ -1,6 +1,3 @@
-# journal_web_25
-Initial commit: Jekyll activities starter
-=======
 # GitHub Pages Starter：玩樂與活動筆記
 
 一個能直接在 GitHub Pages 上運作的 Jekyll Starter：
@@ -54,4 +51,3 @@ bundle exec jekyll serve
 ## 關閉粒子效果
 - 刪除 `_layouts/default.html` 裡的 `<script src="tsparticles...">` 與初始化程式碼。
 - 或在 `index.html` 移除 `#particles-hero` 容器。
-

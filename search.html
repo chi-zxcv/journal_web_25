@@ -1,0 +1,302 @@
+---
+layout: default
+title: 進階搜尋
+permalink: /search/
+---
+
+<h2>進階搜尋</h2>
+<p style="color:#64748b;">同時用「類型、國家/縣市、日期、標籤、關鍵字」過濾。標籤支援 AND/OR。</p>
+
+<form id="searchForm" class="adv-search" style="display:grid; gap:14px; grid-template-columns: repeat(2, minmax(0,1fr)); margin:16px 0 20px;">
+  <fieldset style="grid-column: 1 / -1;">
+    <legend>類型</legend>
+    <div id="typeBox" class="chips"></div>
+  </fieldset>
+
+  <fieldset style="grid-column: 1 / -1;">
+    <legend>地點</legend>
+    <div id="countryCityBox"></div>
+  </fieldset>
+
+  <fieldset>
+    <legend>起始日期</legend>
+    <input type="date" id="fromDate">
+  </fieldset>
+  <fieldset>
+    <legend>結束日期</legend>
+    <input type="date" id="toDate">
+  </fieldset>
+  <div style="grid-column: 1 / -1; display:flex; flex-wrap:wrap; gap:8px;">
+    <button type="button" class="btn-ghost" data-range="this-year">今年</button>
+    <button type="button" class="btn-ghost" data-range="last-30">近30天</button>
+    <button type="button" class="btn-ghost" data-range="clear">清除日期</button>
+  </div>
+
+  <fieldset style="grid-column: 1 / -1;">
+    <legend>標籤</legend>
+    <div style="display:flex; align-items:center; gap:12px; margin-bottom:6px;">
+      <label><input type="radio" name="tagMode" value="and" checked> AND（包含所有所選標籤）</label>
+      <label><input type="radio" name="tagMode" value="or"> OR（其中一個即可）</label>
+    </div>
+    <div id="tagsBox" class="chips"></div>
+  </fieldset>
+
+  <fieldset style="grid-column: 1 / -1;">
+    <legend>關鍵字</legend>
+    <input type="text" id="q" placeholder="標題 / 摘要 / 地點 / 標籤 模糊搜尋">
+  </fieldset>
+
+  <div style="grid-column: 1 / -1; display:flex; gap:8px;">
+    <button type="submit">搜尋</button>
+    <button type="button" id="resetBtn">清除全部</button>
+  </div>
+</form>
+
+<section id="results" class="posts-list"></section>
+
+<script>
+(async function(){
+  const res = await fetch('{{ "/posts.json" | relative_url }}', {cache:'no-store'});
+  const dataRaw = await res.json();
+  const data = dataRaw.map(p => ({
+    ...p,
+    date: (p.date || '').slice(0,10),
+    start_date: (p.start_date || '').slice(0,10),
+    end_date: (p.end_date || '').slice(0,10),
+    type: p.type || '',
+    country: p.country || '',
+    city: p.city || '',
+    tags: Array.isArray(p.tags) ? p.tags : []
+  }));
+
+  const typeBox = document.getElementById('typeBox');
+  const countryCityBox = document.getElementById('countryCityBox');
+  const tagsBox = document.getElementById('tagsBox');
+  const fromDate = document.getElementById('fromDate');
+  const toDate = document.getElementById('toDate');
+  const qInput = document.getElementById('q');
+  const form = document.getElementById('searchForm');
+  const results = document.getElementById('results');
+  const resetBtn = document.getElementById('resetBtn');
+
+  const types = [...new Set(data.map(p => p.type).filter(Boolean))].sort();
+  const countries = [...new Set(data.map(p => p.country).filter(Boolean))].sort();
+  const tagsAll = [...new Set(data.flatMap(p => p.tags||[]))].sort((a,b)=>a.localeCompare(b,'zh-Hant'));
+
+  const citiesByCountry = {};
+  for (const p of data) {
+    if (!p.country) continue;
+    if (!citiesByCountry[p.country]) citiesByCountry[p.country] = new Set();
+    if (p.city) citiesByCountry[p.country].add(p.city);
+  }
+  const countriesWithCities = countries.map(c => ({ country: c, cities: [...(citiesByCountry[c]||[])].sort((a,b)=>a.localeCompare(b,'zh-Hant')) }));
+
+  for (const t of types) {
+    const id = 'type-' + t.replace(/\s+/g,'-');
+    typeBox.insertAdjacentHTML('beforeend', `<label class="chip"><input type="checkbox" value="${t}" id="${id}"><span>${t}</span></label>`);
+  }
+
+  for (const item of countriesWithCities) {
+    const c = item.country;
+    const cid = 'country-' + c;
+    const hasCities = item.cities.length > 0;
+    countryCityBox.insertAdjacentHTML('beforeend', `
+      <div class="cc-group">
+        <div class="cc-head">
+          <label class="chip"><input type="checkbox" class="country-cb" value="${c}" id="${cid}"><span>${c}</span></label>
+          ${hasCities ? `<button type="button" class="cc-toggle" aria-expanded="false">展開</button>` : ''}
+        </div>
+        ${hasCities ? `
+        <div class="cc-cities" hidden>
+          ${item.cities.map(city => {
+            const id = \`city-\${c}-\${city.replace(/\s+/g,'-')}\`;
+            return \`<label class="chip sub"><input type="checkbox" class="city-cb" data-country="\${c}" value="\${city}" id="\${id}"><span>\${city}</span></label>\`
+          }).join('')}
+        </div>` : ''}
+      </div>
+    `);
+  }
+
+  countryCityBox.addEventListener('click', (e)=>{
+    if (!e.target.classList.contains('cc-toggle')) return;
+    const btn = e.target;
+    const wrap = btn.closest('.cc-group');
+    const panel = wrap.querySelector('.cc-cities');
+    const expanded = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', String(!expanded));
+    btn.textContent = expanded ? '展開' : '收合';
+    panel.hidden = expanded;
+  });
+
+  countryCityBox.addEventListener('change', (e)=>{
+    const el = e.target;
+    if (el.classList.contains('country-cb')) {
+      const group = el.closest('.cc-group');
+      group.querySelectorAll('.city-cb').forEach(cb => cb.checked = el.checked);
+    } else if (el.classList.contains('city-cb')) {
+      const group = el.closest('.cc-group');
+      const countryCb = group.querySelector('.country-cb');
+      if (el.checked) countryCb.checked = true;
+      else {
+        const anyChecked = [...group.querySelectorAll('.city-cb')].some(cb=>cb.checked);
+        if (!anyChecked) countryCb.checked = false;
+      }
+    }
+  });
+
+  for (const tag of tagsAll) {
+    const id = 'tag-' + tag.replace(/\s+/g,'-');
+    tagsBox.insertAdjacentHTML('beforeend', `<label class="chip"><input type="checkbox" value="${tag}" id="${id}"><span>${tag}</span></label>`);
+  }
+
+  document.querySelectorAll('[data-range]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const kind = btn.getAttribute('data-range');
+      if (kind === 'this-year') {
+        const d = new Date(); const y = d.getFullYear();
+        fromDate.value = \`\${y}-01-01\`; toDate.value = \`\${y}-12-31\`;
+      } else if (kind === 'last-30') {
+        const to = new Date().toISOString().slice(0,10);
+        const from = new Date(Date.now()-29*24*3600*1000).toISOString().slice(0,10);
+        fromDate.value = from; toDate.value = to;
+      } else { fromDate.value = ''; toDate.value = ''; }
+    });
+  });
+
+  const getSelected = (selector) => [...document.querySelectorAll(selector+':checked')].map(el=>el.value);
+  const tagModeRadio = () => (document.querySelector('input[name="tagMode"]:checked')?.value || 'and');
+
+  function inRange(post, from, to){
+    if (!from && !to) return true;
+    const sd = post.start_date || post.date;
+    const ed = post.end_date || post.date;
+    if (from && ed < from) return false;
+    if (to && sd > to) return false;
+    return true;
+  }
+
+  function matchesKeyword(post, keyword){
+    if (!keyword) return true;
+    const k = keyword.toLowerCase();
+    const hay = [post.title, post.summary, post.location, post.city, ...(post.tags||[])].filter(Boolean).join(' ').toLowerCase();
+    return hay.includes(k);
+  }
+
+  function matches(post){
+    const typesSel = getSelected('#typeBox input[type="checkbox"]');
+    if (typesSel.length && !typesSel.includes(post.type)) return false;
+
+    const countriesSel = getSelected('.country-cb');
+    const citiesSel = getSelected('.city-cb');
+    if (countriesSel.length) {
+      if (!countriesSel.includes(post.country)) return false;
+      const checkedCities = [...document.querySelectorAll('.cc-group')]
+        .filter(g => g.querySelector('.country-cb').checked)
+        .flatMap(g => [...g.querySelectorAll('.city-cb:checked')].map(cb => ({country: g.querySelector('.country-cb').value, city: cb.value})))
+        .filter(e => e.country === post.country)
+        .map(e => e.city);
+      if (checkedCities.length && !checkedCities.includes(post.city)) return false;
+    }
+
+    if (!inRange(post, fromDate.value, toDate.value)) return false;
+
+    const selectedTags = getSelected('#tagsBox input[type="checkbox"]');
+    if (selectedTags.length) {
+      const set = new Set(post.tags || []);
+      if (tagModeRadio() === 'and') {
+        for (const t of selectedTags) if (!set.has(t)) return false;
+      } else {
+        let ok = false; for (const t of selectedTags) if (set.has(t)) { ok = true; break; }
+        if (!ok) return false;
+      }
+    }
+
+    if (!matchesKeyword(post, qInput.value.trim())) return false;
+
+    return true;
+  }
+
+  function cardHTML(p){
+    const thumb = p.cover || (p.gallery && p.gallery[0]) || '{{ "/assets/images/placeholder.jpg" | relative_url }}';
+    const meta = [p.date, p.city || p.location || '', p.type ? p.type.toUpperCase() : ''].filter(Boolean).join(' · ');
+    const tgs = (p.tags||[]).map(t=>`<span class="tag">#${t}</span>`).join(' ');
+    return `
+      <article class="post-item">
+        <a href="${p.url}" aria-label="${p.title}">
+          <img class="post-thumb" src="${thumb}" alt="thumbnail of ${p.title}">
+        </a>
+        <div>
+          <h3 class="post-title"><a href="${p.url}">${p.title}</a></h3>
+          <div class="post-meta">${meta}</div>
+          ${p.summary ? `<p class="post-excerpt">${p.summary}</p>` : ''}
+          ${tgs ? `<div class="tags">${tgs}</div>` : ''}
+        </div>
+      </article>
+    `;
+  }
+
+  function render(list){
+    if (!list.length){ results.innerHTML = `<p style="color:#64748b;">沒有符合條件的結果。</p>`; return; }
+    list.sort((a,b)=> (a.date < b.date ? 1 : -1));
+    results.innerHTML = list.map(cardHTML).join('');
+  }
+
+  function syncURL(){
+    const params = new URLSearchParams();
+    const tsel = getSelected('#typeBox input[type="checkbox"]');
+    const csel = getSelected('.country-cb');
+    const citysel = getSelected('.city-cb');
+    const tgsel = getSelected('#tagsBox input[type="checkbox"]');
+    if (tsel.length) params.set('types', tsel.join(','));
+    if (csel.length) params.set('countries', csel.join(','));
+    if (citysel.length) params.set('cities', citysel.join(','));
+    if (fromDate.value) params.set('from', fromDate.value);
+    if (toDate.value) params.set('to', toDate.value);
+    if (tgsel.length) params.set('tags', tgsel.join(','));
+    const mode = tagModeRadio(); if (mode !== 'and') params.set('tagmode', mode);
+    if (qInput.value.trim()) params.set('q', qInput.value.trim());
+    history.replaceState(null,'', params.toString()? ('?'+params.toString()) : location.pathname);
+  }
+
+  function applyAndRender(){
+    const filtered = data.filter(matches);
+    render(filtered);
+    syncURL();
+  }
+
+  form.addEventListener('submit', (e)=>{ e.preventDefault(); applyAndRender(); });
+  resetBtn.addEventListener('click', ()=>{
+    document.querySelectorAll('.adv-search input[type="checkbox"]').forEach(cb=>cb.checked=false);
+    fromDate.value = ''; toDate.value = ''; qInput.value = '';
+    document.querySelector('input[name="tagMode"][value="and"]').checked = true;
+    render(data); history.replaceState(null,'', location.pathname);
+  });
+
+  const url = new URL(location.href);
+  const qs = (key) => url.searchParams.get(key) || '';
+  const setChecks = (container, values) => {
+    if (!values.length) return;
+    const set = new Set(values);
+    container.querySelectorAll('input[type="checkbox"]').forEach(cb => { if (set.has(cb.value)) cb.checked = true; });
+  };
+
+  setChecks(typeBox, (qs('types')||'').split(',').filter(Boolean));
+  setChecks(countryCityBox, (qs('countries')||'').split(',').filter(Boolean));
+  setChecks(countryCityBox, (qs('cities')||'').split(',').filter(Boolean));
+  fromDate.value = qs('from'); toDate.value = qs('to');
+  setChecks(tagsBox, (qs('tags')||'').split(',').filter(Boolean));
+  const tm = qs('tagmode'); if (tm) (document.querySelector(`input[name="tagMode"][value="${tm}"]`) || {}).checked = true;
+  qInput.value = qs('q');
+
+  countryCityBox.querySelectorAll('.cc-group').forEach(g=>{
+    const anyCityChecked = [...g.querySelectorAll('.city-cb')].some(cb=>cb.checked);
+    if (anyCityChecked) {
+      const btn = g.querySelector('.cc-toggle');
+      const panel = g.querySelector('.cc-cities');
+      if (btn && panel) { btn.setAttribute('aria-expanded','true'); btn.textContent='收合'; panel.hidden=false; }
+    }
+  });
+
+  applyAndRender();
+})();
+</script>

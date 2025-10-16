@@ -1,0 +1,28 @@
+title: 玩樂與活動筆記
+description: 紀錄每次出走與參與，留下心得與反思
+baseurl: ""            # 若不是 user.github.io 主站，改成 "/你的repo名稱"
+url: "https://yourname.github.io"   # 改成你的 GitHub Pages 網域
+
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
+
+# 分頁（可依需求調整數量）
+paginate: 12
+paginate_path: "/page:num/"
+
+collections:
+  posts:
+    output: true
+    permalink: /notes/:year/:month/:day/:title/
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+include:
+  - assets
