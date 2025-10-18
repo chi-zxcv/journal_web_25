@@ -121,12 +121,6 @@ video_dir: /assets/videos/2025-10-18-tamsui-dinosaur/
 
 <div class="video-gallery">
   <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
-    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/43c8fa95-e80e-4f27-b09e-ddaabfcf3c7e.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
-    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/4848980d-cedc-4f75-a239-8f10557b0c27.mp4' | relative_url }}" type="video/mp4">
-  </video>
-  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
     <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/c1accb2f-7a70-4fc7-ad56-89496a1c754f.mp4' | relative_url }}" type="video/mp4">
   </video>
   <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
