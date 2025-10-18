@@ -2,7 +2,43 @@
 
 
   {
-    "url": "/notes/2025/10/10/tamsui/",
+    "url": "/journal_web_25/notes/2025/10/18/tamsui-heritage/",
+    "title": "【走讀淡水】河畔光影：走近淡水金色水岸，走進河港繁華過往",
+    "date": "2025-10-18",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "culture",
+    "country": "TW",
+    "city": "新北市淡水區",
+    "location": "",
+    "tags": ["淡水","走讀","古蹟","歷史","五五領","殼牌倉庫","紅毛城"],
+    "summary": "河邊踅一趟，淡水河港的歷史走一遍。從北港塘、崁仔腳、渡船頭到紅毛城、殼牌倉庫，淡水河畔的丘陵光影仍記錄著百年的商港繁華與在地生活。",
+    "cover": "/assets/images/2025-10-18-tamsui-heritage/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/18/tamsui-dinosaur-evolution/",
+    "title": "【淡水恐龍特展】從恐龍看進化：時間、生命與親子的共鳴",
+    "date": "2025-10-18",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "新北市淡水區",
+    "location": "",
+    "tags": ["淡水","恐龍展","親子","演化","生命","時間"],
+    "summary": "恐龍的誕生與滅亡，是地球的自我修正。看著孩子在暴龍腳邊奔跑，我突然明白，也許進化並非生物的競爭，而是生命學會與時間共處的方式。",
+    "cover": "/assets/images/2025-10-18-tamsui-dinosaur/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/10/tamsui/",
     "title": "10/10 國慶午後 — 在淡水的另一種慶祝方式",
     "date": "2025-10-10",
     "start_date": "",
@@ -20,25 +56,7 @@
   },
 
   {
-    "url": "/notes/2025/09/22/first-entry/",
-    "title": "華山設計展・快閃一日遊",
-    "date": "2025-09-22",
-    "start_date": "",
-    "end_date": "",
-    "year": "2025",
-    "month": "09",
-    "type": "event",
-    "country": "TW",
-    "city": "台北市",
-    "location": "台北｜華山文創園區",
-    "tags": ["設計展","朋友聚","台北"],
-    "summary": "用半天密集看展，收集了不少靈感，最後在附近咖啡店作結。",
-    "cover": "/assets/images/sample/cover.jpg",
-    "gallery": ["/assets/images/sample/p1.jpg","/assets/images/sample/p2.jpg"]
-  },
-
-  {
-    "url": "/notes/2025/08/17/runway-first-suit/",
+    "url": "/journal_web_25/notes/2025/08/17/runway-first-suit/",
     "title": "第一次穿上西裝走秀｜突破自己",
     "date": "2025-08-17",
     "start_date": "",
