@@ -118,19 +118,22 @@ video_dir: /assets/videos/2025-10-18-tamsui-dinosaur/
 
 ## 🎬 現場影片剪影
 
-{%- assign video_path = page.video_dir -%}
-{%- assign videos = site.static_files | where_exp: "v", "v.path contains video_path" -%}
 
 <div class="video-gallery">
-  {%- for v in videos -%}
-    {%- if v.extname == ".mp4" or v.extname == ".webm" -%}
-      <video controls preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.2);margin-bottom:12px;">
-        <source src="{{ v.path | relative_url }}" type="video/mp4">
-        你的瀏覽器不支援影片播放。
-      </video>
-    {%- endif -%}
-  {%- endfor -%}
+  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
+    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/43c8fa95-e80e-4f27-b09e-ddaabfcf3c7e.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
+    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/4848980d-cedc-4f75-a239-8f10557b0c27.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
+    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/c1accb2f-7a70-4fc7-ad56-89496a1c754f.mp4' | relative_url }}" type="video/mp4">
+  </video>
+  <video controls playsinline preload="metadata" style="width:100%;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.2);margin-bottom:12px;">
+    <source src="{{ '/assets/videos/2025-10-18-tamsui-dinosaur/da19213a-0fd3-4495-ad3e-59deade4f1dc.mp4' | relative_url }}" type="video/mp4">
+  </video>
 </div>
+
 
 <style>
 .gallery {
