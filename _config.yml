@@ -1,7 +1,7 @@
 title: 玩樂與活動筆記
 description: 紀錄每次出走與參與，留下心得與反思
-baseurl: ""            # 若不是 user.github.io 主站，改成 "/你的repo名稱"
-url: "https://yourname.github.io"   # 改成你的 GitHub Pages 網域
+url: "https://chi-zxcv.github.io/journal_web_25/"
+baseurl: "/journal_web_25"
 
 theme: minima
 plugins:
