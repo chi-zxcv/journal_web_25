@@ -1,62 +1,63 @@
-name: Build and Deploy Jekyll
+title: 玩樂與活動筆記
+description: 記錄旅遊、活動與生活的點滴
+author: chi-zxcv
+email: your_email@example.com
 
-on:
-  push:
-    branches: [ main ]
-  workflow_dispatch:
+# --- 關鍵：設定 GitHub Pages 網址與 baseurl ---
+url: "https://chi-zxcv.github.io"     # 不要加最後的斜線
+baseurl: "/journal_web_25"           # 子資料夾名稱（repo 名）
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
+# --- Jekyll 的主要設定 ---
+theme: minima
+markdown: kramdown
+highlighter: rouge
+paginate: 10
+paginate_path: "/page:num/"
 
-concurrency:
-  group: "pages"
-  cancel-in-progress: true
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate
 
-url: "https://chi-zxcv.github.io"
-baseurl: "/journal_web_25"
+# --- 站內導覽與排版 ---
+collections:
+  posts:
+    output: true
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: post
+      permalink: /:categories/:year/:month/:day/:title/
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+# --- exclude: 不需要上傳到 site 的項目 ---
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - .sass-cache
+  - _site
+  - .jekyll-cache
+  - .gitignore
+  - .github
 
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
+# --- 自訂選單（如果有導覽列） ---
+nav:
+  - name: 首頁
+    link: /
+  - name: 標籤
+    link: /tags/
+  - name: 歸檔
+    link: /archive/
+  - name: 搜尋
+    link: /search/
+  - name: 關於
+    link: /about/
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.2'
-          bundler-cache: true
-
-      - name: Install dependencies
-        run: |
-          if [ ! -f Gemfile ]; then
-            echo 'source "https://rubygems.org"' > Gemfile
-            echo 'gem "github-pages", group: :jekyll_plugins' >> Gemfile
-          fi
-          bundle install
-
-      - name: Build Jekyll
-        run: bundle exec jekyll build -d _site
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-
+# --- SEO / RSS Feed ---
+jekyll_seo_tag:
+  social:
+    name: 玩樂與活動筆記
+    description: 記錄生活與活動的網站
