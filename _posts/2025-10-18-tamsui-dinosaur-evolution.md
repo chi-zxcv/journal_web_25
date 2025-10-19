@@ -5,7 +5,7 @@ date: 2025-10-18
 type: reflection
 country: TW
 city: 新北市淡水區
-tags: [淡水, 恐龍展, 親子, 演化, 生命, 時間]
+tags: [淡水, 恐龍, 演化, 生命, 時間,成長]
 summary: 恐龍的誕生與滅亡，是地球的自我修正。也許進化並非生物的競爭，而是生命學會與時間共處的方式。
 cover: /assets/images/2025-10-18-tamsui-dinosaur/cover.jpg
 gallery_dir: /assets/images/2025-10-18-tamsui-dinosaur/

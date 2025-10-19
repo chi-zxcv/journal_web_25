@@ -13,7 +13,7 @@
     "country": "TW",
     "city": "新北市淡水區",
     "location": "",
-    "tags": ["淡水","走讀","古蹟","歷史","五五領","殼牌倉庫","紅毛城"],
+    "tags": ["淡水","走讀","古蹟","歷史"],
     "summary": "河邊踅一趟，淡水河港的歷史走一遍。從北港塘、崁仔腳、渡船頭到紅毛城、殼牌倉庫，淡水河畔的丘陵光影仍記錄著百年的商港繁華與在地生活。",
     "cover": "/assets/images/2025-10-18-tamsui-heritage/cover.jpg",
     "gallery": []
@@ -31,7 +31,7 @@
     "country": "TW",
     "city": "新北市淡水區",
     "location": "",
-    "tags": ["淡水","恐龍展","親子","演化","生命","時間"],
+    "tags": ["淡水","恐龍","演化","生命","時間","成長"],
     "summary": "恐龍的誕生與滅亡，是地球的自我修正。也許進化並非生物的競爭，而是生命學會與時間共處的方式。",
     "cover": "/assets/images/2025-10-18-tamsui-dinosaur/cover.jpg",
     "gallery": []
@@ -69,7 +69,7 @@
     "location": "",
     "tags": ["國慶","淡水","出遊","生活紀錄"],
     "summary": "國慶日的午後，我們沒有升旗、沒有煙火，選擇在陽光與海風裡用另一種方式紀念這一天。",
-    "cover": "/assets/images/2025-10-10-tamsui/img1.jpg",
+    "cover": "/assets/images/2025-10-10-tamsui/cover.jpg",
     "gallery": []
   },
 

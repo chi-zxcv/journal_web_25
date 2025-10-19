@@ -5,7 +5,7 @@ date: 2025-10-18
 type: culture
 country: TW
 city: 新北市淡水區
-tags: [淡水, 走讀, 古蹟, 歷史, 五五領, 殼牌倉庫, 紅毛城]
+tags: [淡水, 走讀, 古蹟, 歷史]
 summary: 河邊踅一趟，淡水河港的歷史走一遍。從北港塘、崁仔腳、渡船頭到紅毛城、殼牌倉庫，淡水河畔的丘陵光影仍記錄著百年的商港繁華與在地生活。
 cover: /assets/images/2025-10-18-tamsui-heritage/cover.jpg
 gallery_dir: /assets/images/2025-10-18-tamsui-heritage/
