@@ -56,6 +56,60 @@
   },
 
   {
+    "url": "/journal_web_25/notes/2025/10/12/taichung-day2-3/",
+    "title": "【台中兩天一夜·Day2-3】高美濕地：夕陽、海風與回程的心",
+    "date": "2025-10-12",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "台中市清水區",
+    "location": "",
+    "tags": ["台中","高美濕地","夕陽","旅行","回程","海邊","自然"],
+    "summary": "在高美濕地踩著海水，看著夕陽緩緩墜下。旅程即將結束，而心卻在這片金色的倒影裡，找到屬於自己的歸屬。",
+    "cover": "/assets/images/2025-10-12-taichung-day2-3/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/12/taichung-day2-2/",
+    "title": "【台中兩天一夜·Day2】海的鹹味與公路的風：梧棲漁港與清水休息站的午後",
+    "date": "2025-10-12",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "travel",
+    "country": "TW",
+    "city": "台中市",
+    "location": "",
+    "tags": ["台中","梧棲漁港","清水休息站","旅行","海鮮","公路"],
+    "summary": "在梧棲的海風裡、清水的午後陽光下，旅行不再是目的地，而是一種呼吸。那些鹹味、笑聲與微風，成了此行最自然的節奏。",
+    "cover": "/assets/images/2025-10-12-taichung-day2-2/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/12/taichung-day2-1/",
+    "title": "【台中兩天一夜·Day2】早晨的千層與恐龍槍：幸福，其實很簡單",
+    "date": "2025-10-12",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "travel",
+    "country": "TW",
+    "city": "台中市",
+    "location": "",
+    "tags": ["台中","民宿","友情","恐龍","旅行","早晨"],
+    "summary": "一場旅行的最後，不一定要壯闊或深刻。有時，一片千層蛋糕、一把玩具槍、一群笑著的人，就足以讓早晨成為永恆。",
+    "cover": "/assets/images/2025-10-12-taichung-morning/cover.jpg",
+    "gallery": []
+  },
+
+  {
     "url": "/journal_web_25/notes/2025/10/11/taichung-day2/",
     "title": "【台中兩天一夜·Day2】鯨之記憶與大地瑰寶：在自然之間，看見時間的呼吸",
     "date": "2025-10-11",
