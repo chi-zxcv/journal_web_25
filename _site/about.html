@@ -26,8 +26,100 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/journal_web_25/assets/css/style.css">
+  <style>
+  :root { --bg:#f8fafc; --text:#0f172a; --card:#fff; --muted:#64748b; }
+  html.dark { --bg:#0b1220; --text:#e5e7eb; --card:#111827; --muted:#94a3b8; }
+  html,body{ background:var(--bg); color:var(--text); }
+  .card, .post-item{ background:var(--card); }
+  </style>
 </head>
 <body>
+<!-- SVG Icons Sprite (hidden) -->
+<svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden" aria-hidden="true">
+  <!-- 工程師 / 齒輪 -->
+  <symbol id="icon-engineer" viewBox="0 0 24 24">
+    <path d="M12 2l1.2 2.5 2.7.4-1.9 2 0.4 2.8L12 9.1 9.6 9.7l0.4-2.8-1.9-2 2.7-.4L12 2zM7 14a5 5 0 1 1 10 0v5a2 2 0 0 1-2 2h-6a2 2 0 0 1-2-2v-5zm3 2h4a1 1 0 0 1 0 2h-4a1 1 0 0 1 0-2z"/>
+  </symbol>
+
+  <!-- 遊戲手把 -->
+  <symbol id="icon-gamepad" viewBox="0 0 24 24">
+    <path d="M6 8h12a4 4 0 0 1 3.8 5.2l-1.1 3.2A3 3 0 0 1 18 19c-1 0-1.9-.5-2.5-1.2l-.4-.5h-6.2l-.4.5A3.2 3.2 0 0 1 6 19a3 3 0 0 1-2.7-2.6L2.2 13A4 4 0 0 1 6 8zm2 2H7v1H6v1h1v1h1v-1h1v-1H8v-1zm7 .5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3 0a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/>
+  </symbol>
+
+  <!-- 相機 -->
+  <symbol id="icon-camera" viewBox="0 0 24 24">
+    <path d="M9 5h6l1 2h3a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h3l1-2zm3 4a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6z"/>
+  </symbol>
+
+  <!-- 葉子 / 自然 -->
+  <symbol id="icon-leaf" viewBox="0 0 24 24">
+    <path d="M20 4c-9 0-16 7-16 16 9 0 16-7 16-16zm-7.5 6.5c-2.8 1.4-4.7 3.2-6 5.9l1.2.6c1.1-2.3 2.6-3.9 5.1-5.1l-.3-1.4z"/>
+  </symbol>
+
+  <!-- 針點 / 城市 -->
+  <symbol id="icon-pin" viewBox="0 0 24 24">
+    <path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/>
+  </symbol>
+
+  <!-- 日曆 -->
+  <symbol id="icon-calendar" viewBox="0 0 24 24">
+    <path d="M7 2h2v2h6V2h2v2h3a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3V2zm14 7H3v10h18V9z"/>
+  </symbol>
+
+  <!-- 影片 / 播放 -->
+  <symbol id="icon-video" viewBox="0 0 24 24">
+    <path d="M3 6h12a2 2 0 0 1 2 2v1l4-2v10l-4-2v1a2 2 0 0 1-2 2H3V6zm7 3v6l5-3-5-3z"/>
+  </symbol>
+
+  <!-- 標籤 -->
+  <symbol id="icon-tag" viewBox="0 0 24 24">
+    <path d="M10 3l9 9-7 7-9-9V3h7zm-2.5 4A1.5 1.5 0 1 0 7 8.5 1.5 1.5 0 0 0 7.5 7z"/>
+  </symbol>
+
+  <!-- 太陽 / 月亮（主題） -->
+  <symbol id="icon-sun" viewBox="0 0 24 24">
+    <path d="M12 4V2m0 20v-2m8-8h2M2 12h2m13.66 6.66l1.41 1.41M4.93 4.93l1.41 1.41m0 11.32l-1.41 1.41M18.07 4.93l-1.41 1.41M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10z" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+  </symbol>
+  <symbol id="icon-moon" viewBox="0 0 24 24">
+    <path d="M21 12.5A9 9 0 1 1 11.5 3a7 7 0 1 0 9.5 9.5z"/>
+  </symbol>
+
+  <!-- 外連 -->
+  <symbol id="icon-external" viewBox="0 0 24 24">
+    <path d="M14 3h7v7h-2V7.4l-8.3 8.3-1.4-1.4L17.6 6H14V3zM5 5h6v2H7v10h10v-4h2v6H5V5z"/>
+  </symbol>
+
+  <!-- GitHub -->
+  <symbol id="icon-github" viewBox="0 0 24 24">
+    <path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.8c-3 .7-3.7-1.4-3.7-1.4-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.6 1 1.6 1 .9 1.6 2.5 1.1 3.2.8.1-.7.4-1.1.7-1.4-2.4-.3-5-1.2-5-5.4 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.5.1-3 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.4 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.7.1 3 .7.8 1.1 1.8 1.1 3 0 4.2-2.6 5-5 5.3.4.4.7 1 .7 2v3c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/>
+  </symbol>
+
+  <!-- 信封 / Email -->
+  <symbol id="icon-mail" viewBox="0 0 24 24">
+    <path d="M3 6h18v12H3V6zm9 6L3 8v8h18V8l-9 4z"/>
+  </symbol>
+
+  <!-- 閃電 / 突破 -->
+  <symbol id="icon-bolt" viewBox="0 0 24 24">
+    <path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/>
+  </symbol>
+
+  <!-- 心 / 喜歡 -->
+  <symbol id="icon-heart" viewBox="0 0 24 24">
+    <path d="M12 21s-7.3-4.6-9.5-8.5A5.5 5.5 0 0 1 12 6a5.5 5.5 0 0 1 9.5 6.5C19.3 16.4 12 21 12 21z"/>
+  </symbol>
+</svg>
+
+<!-- 一點通用樣式 -->
+<style>
+.icon{ width:1.1em; height:1.1em; vertical-align:-0.15em; fill:currentColor }
+.icon-lg{ width:1.35em; height:1.35em }
+.icon-muted{ color:#64748b }
+.icon-accent{ color:#2563eb }
+.icon-btn{ display:inline-flex; align-items:center; gap:.4em; padding:.45em .7em; border:1px solid #e5e7eb; border-radius:10px; text-decoration:none }
+.icon-btn:hover{ background:#f8fafc }
+</style>
+
 <header class="site-header container">
   <h1 class="site-title"><a href="/journal_web_25/">玩樂與活動筆記</a></h1>
   <nav class="site-nav">
@@ -36,12 +128,236 @@
     <a href="/journal_web_25/archive">歸檔</a> ·
     <a href="/journal_web_25/search/">搜尋</a> ·
     <a href="/journal_web_25/about">關於</a>
+    <button id="themeToggle" class="btn-ghost" aria-label="切換深色">🌓</button>
   </nav>
+
   <hr>
 </header>
 
 <main class="site-main container">
-  <p>嗨！這裡是我的「遊玩 / 活動紀錄」站。記錄我參加過的活動、旅行、遊戲體驗與心得反思。</p>
+  <!-- Hero 區塊 -->
+<section class="about-hero">
+  <h1>嗨，我是工程師，也是在路上的玩家</h1>
+  <!-- 放在 Hero 內標題旁 -->
+<h1>
+  <svg class="icon icon-lg icon-accent"><use href="#icon-engineer"></use></svg>
+  嗨，我是工程師，也是在路上的玩家
+</h1>
+
+<!-- 在小節標題前加圖示 -->
+<h2>
+  <svg class="icon icon-accent"><use href="#icon-bolt"></use></svg>
+  為什麼想開始寫這個網站
+</h2>
+
+<!-- 列表前的 emoji 改成圖示 -->
+<ul>
+  <li>
+    <svg class="icon icon-muted"><use href="#icon-gamepad"></use></svg>
+    遊玩紀錄：活動、展覽、體驗、遊戲、表演等現場心得
+  </li>
+  <li>
+    <svg class="icon icon-muted"><use href="#icon-leaf"></use></svg>
+    生活觀察：家人、自然、菜園、土地的故事
+  </li>
+  <li>
+    <svg class="icon icon-muted"><use href="#icon-camera"></use></svg>
+    照片與影片集：每次出發的影像紀錄
+  </li>
+  <li>
+    <svg class="icon icon-muted"><use href="#icon-tag"></use></svg>
+    思考與反省：在科技與人文之間找到平衡點
+  </li>
+</ul>
+
+  <p class="shimmer">從理性走向感性，從裝置走向生活</p>
+</section>
+
+<style>
+.about-hero{
+  margin:8px 0 18px;
+  padding:22px 18px;
+  border-radius:16px;
+  background:linear-gradient(135deg,#e0f2fe 0%,#eef2ff 100%);
+  border:1px solid rgba(0,0,0,.06);
+}
+.about-hero h1{
+  margin:0 0 6px;
+  font-size:26px;
+  line-height:1.25;
+}
+.about-hero .shimmer{
+  display:inline-block;
+  font-weight:600;
+  background:linear-gradient(90deg,#0ea5e9,#6366f1,#22c55e,#0ea5e9);
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  background-size:300% 100%;
+  animation:shine 6s linear infinite;
+}
+@keyframes shine{
+  0%{background-position:0% 50%;}
+  100%{background-position:100% 50%;}
+}
+@media (max-width:760px){
+  .about-hero{padding:18px 14px}
+  .about-hero h1{font-size:22px}
+}
+</style>
+
+<hr />
+
+<h1 id="關於本站">關於本站</h1>
+
+<p>嗨！這裡是我的「<strong>遊玩 / 活動紀錄</strong>」站。<br />
+我是一名在科技業工作的工程師，<br />
+平常面對的是晶片、韌體、Android 系統、測試報告與數不清的 log。<br />
+但我希望這裡，能成為我另一個頻道——<br />
+<strong>從理性走向感性，從裝置走向生活。</strong></p>
+
+<hr />
+
+<h2 id="-為什麼想開始寫這個網站">💡 為什麼想開始寫這個網站</h2>
+
+<p>身為工程師，我的世界裡充滿「效率、精確、可重現性」。<br />
+但越忙越覺得，<strong>生活不能只靠 debug 運作。</strong><br />
+有時我會帶著好奇出門參加活動、旅行、看展、種菜，<br />
+甚至只是靜靜地走一段路。<br />
+那些瞬間像是生活裡的小 patch，<br />
+幫我修補了長期工作留下的空白。</p>
+
+<p>這個網站，就是我的<strong>生活實驗紀錄</strong>。<br />
+我想記下每一次出發、每一次「想做些不同的事」的念頭。</p>
+
+<hr />
+
+<h2 id="-關於我理性與好奇的拉扯">🧠 關於我：理性與好奇的拉扯</h2>
+
+<p>我在科技產業中負責系統整合、感測器驗證、電源管理與自動化測試。<br />
+長期處理硬體與軟體的邊界，也讓我對「<strong>界線與轉換</strong>」特別有感。<br />
+所以在生活裡，我也想去觀察各種界線——<br />
+工作與休息、技術與人文、安定與探索。</p>
+
+<p>我不只是想玩樂，而是想<strong>用工程師的方式觀察生活，用旅行者的心體驗世界</strong>。</p>
+
+<hr />
+
+<h2 id="-這裡會出現的內容">🚀 這裡會出現的內容</h2>
+
+<ul>
+  <li>🎮 <strong>遊玩紀錄</strong>：活動、展覽、體驗、遊戲、表演等現場心得</li>
+  <li>🌿 <strong>生活觀察</strong>：家人、自然、菜園、土地的故事</li>
+  <li>📸 <strong>照片與影片集</strong>：每次出發的影像紀錄</li>
+  <li>💭 <strong>思考與反省</strong>：在科技與人文之間找到平衡點</li>
+</ul>
+
+<p>每一篇文章，都是一次「從螢幕離開」的嘗試。<br />
+我不追求多精彩的旅程，只想記下當下的感覺、思考與變化。</p>
+
+<hr />
+
+<h2 id="-為什麼是工程師的遊玩紀錄">🔧 為什麼是工程師的「遊玩紀錄」</h2>
+
+<p>因為我相信，「玩」是最純粹的學習方式。<br />
+不管是測試新設備、搭火車去陌生的地方，<br />
+或是參加一場看似跟本業無關的活動，<br />
+這些都讓我從不同角度重新理解自己。</p>
+
+<p>玩，不只是放鬆，<br />
+<strong>而是探索一種「不需要理由也能存在的快樂」。</strong></p>
+
+<hr />
+
+<h2 id="-想突破的不只是技術">✨ 想突破的，不只是技術</h2>
+
+<p>科技讓生活更方便，但也容易讓人被框在螢幕裡。<br />
+我希望透過這個網站，<br />
+讓「生活紀錄」變成一種習慣，<br />
+去重新接觸真實的世界、風、土壤、聲音與人。</p>
+
+<p>這不是逃離工程師的身分，<br />
+而是讓工程師也能<strong>體驗、觀察、感受、創造</strong>。</p>
+
+<hr />
+
+<h2 id="-結語">📍 結語</h2>
+
+<p>如果你也在科技業、或在努力找生活平衡，<br />
+歡迎來這裡走走。<br />
+也許我們都在不同的領域「debug 生活」，<br />
+但最終想讓人生，跑得更順、更穩、更自由。</p>
+
+<hr />
+
+<p><em>Engineer outside the lab, explorer inside the world.</em> 🌏</p>
+
+<hr />
+
+<!-- ▼ 互動延伸：時間線 + 統計卡 ▼ -->
+
+<section class="card">
+  <h2>時間線（一些轉折）</h2>
+  <details open=""><summary>2025｜把「記錄」升級為日常</summary>
+    <p>建立站內搜尋與標籤結構，開始用主題策展自己的生活。</p>
+  </details>
+  <details><summary>2024｜把「出走」當作例行</summary>
+    <p>固定安排微旅行與在地走讀；練習用照片與文字說完整故事。</p>
+  </details>
+  <details><summary>更早以前｜工程師的開端</summary>
+    <p>在系統整合與測試自動化裡打底，理解邏輯與人之間的距離。</p>
+  </details>
+</section>
+
+<section class="stats-grid">
+  <div class="stat">
+    <div class="num" data-count="5">0</div>
+    <div class="label">總文章</div>
+  </div>
+  <div class="stat">
+    
+    <div class="num" data-count="22">0</div>
+    <div class="label">標籤</div>
+  </div>
+  <div class="stat">
+    
+    <div class="num" data-count="2">0</div>
+    <div class="label">走過的城市</div>
+  </div>
+</section>
+
+<style>
+.card{background:var(--card);border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:14px;margin:22px 0}
+details{border:1px dashed #e5e7eb;border-radius:10px;padding:8px 10px;margin:8px 0;background:#fff}
+details>summary{cursor:pointer;font-weight:600}
+.stats-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:10px}
+.stat{text-align:center;background:var(--card);border:1px solid #eef2f7;border-radius:14px;padding:14px}
+.stat .num{font-size:34px;font-weight:800;line-height:1.1}
+.stat .label{color:#64748b}
+@media (max-width:760px){.stats-grid{grid-template-columns:1fr 1fr}}
+</style>
+
+<script>
+(() => {
+  const nums=document.querySelectorAll('.num[data-count]');
+  if(!nums.length)return;
+  const ob=new IntersectionObserver(es=>es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=+el.dataset.count||0;let cur=0;
+    const t0=performance.now(),dur=800;
+    const step=t=>{
+      const p=Math.min(1,(t-t0)/dur);
+      cur=Math.round(end*p);
+      el.textContent=cur.toLocaleString();
+      if(p<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    ob.unobserve(el);
+  }),{threshold:.6});
+  nums.forEach(n=>ob.observe(n));
+})();
+</script>
+
 
 </main>
 
@@ -78,6 +394,48 @@ document.addEventListener('DOMContentLoaded', async () => {
     detectRetina: true
   }});
 });
+
+(() => {
+  const key = 'pref-theme';
+  const apply = v => document.documentElement.classList.toggle('dark', v==='dark');
+  apply(localStorage.getItem(key) || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const next = document.documentElement.classList.contains('dark') ? 'light' : 'dark';
+    localStorage.setItem(key, next); apply(next);
+  });
+})();
+
+(() => {
+  const sel = '.gallery img, .post .gallery-img';
+  let items=[], idx=0, overlay;
+  function open(i){
+    idx=i; const src=items[idx].src;
+    overlay = document.createElement('div');
+    overlay.style.cssText='position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.85);z-index:9999';
+    overlay.innerHTML=`<img src="${src}" style="max-width:92vw;max-height:92vh;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.5)" />`;
+    document.body.appendChild(overlay);
+    overlay.addEventListener('click', e=>{ if(e.target===overlay) close(); });
+    window.addEventListener('keydown', onkey);
+  }
+  function close(){ overlay?.remove(); window.removeEventListener('keydown', onkey); }
+  function onkey(e){
+    if(e.key==='Escape') return close();
+    if(e.key==='ArrowRight'){ idx=(idx+1)%items.length; overlay.querySelector('img').src=items[idx].src; }
+    if(e.key==='ArrowLeft'){ idx=(idx-1+items.length)%items.length; overlay.querySelector('img').src=items[idx].src; }
+  }
+  window.addEventListener('load',()=>{
+    items=[...document.querySelectorAll(sel)];
+    items.forEach((img,i)=> img.addEventListener('click',()=>open(i)));
+  });
+})();
+
+(() => {
+  const ob=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){ e.target.classList.add('show'); ob.unobserve(e.target); }
+  }), {threshold:.15});
+  window.addEventListener('load',()=> document.querySelectorAll('.reveal').forEach(el=>ob.observe(el)));
+})();
+
 </script>
 </body>
 </html>

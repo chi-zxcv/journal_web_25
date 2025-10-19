@@ -64,3 +64,6 @@ blockquote { margin: 18px 0; padding: 14px 16px; background: rgba(37,99,235,.06)
 .cc-cities { margin:10px 0 0 4px; display:flex; flex-wrap:wrap; gap:8px; }
 .btn-ghost { border:1px solid #e5e7eb; background:#fff; border-radius:8px; padding:6px 10px; cursor:pointer; }
 .btn-ghost:hover { background:#f8fafc; }
+.reveal { opacity:0; transform:translateY(12px); transition:all .6s ease; }
+.reveal.show { opacity:1; transform:none; }
+
