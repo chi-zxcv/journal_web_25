@@ -56,6 +56,42 @@
   },
 
   {
+    "url": "/journal_web_25/notes/2025/10/11/taichung-day2/",
+    "title": "【台中兩天一夜·Day2】鯨之記憶與大地瑰寶：在自然之間，看見時間的呼吸",
+    "date": "2025-10-11",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "台中市",
+    "location": "",
+    "tags": ["台中","科博館","鯨掘","大地瑰寶","生命","自然","反思"],
+    "summary": "在鯨魚的骨骸與礦石的紋理之間，我看見了生命的延續與時間的靜默。原來，萬物都有自己的方式記錄存在。",
+    "cover": "/assets/images/2025-10-11-taichung-museum/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/11/taichung-day1/",
+    "title": "【台中兩天一夜·Day1】從竹圍出發：一路向南的晨光與重逢",
+    "date": "2025-10-11",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "travel",
+    "country": "TW",
+    "city": "台中市",
+    "location": "",
+    "tags": ["台中","旅行","友情","慶生","泰式料理","龍貓"],
+    "summary": "清晨六點的竹圍，天還沒亮，心卻早已在路上。這趟從中壢出發的台中之旅，是一場久違的重逢，也是一場與自己節奏和記憶的對話。",
+    "cover": "/assets/images/2025-10-11-taichung-day1/cover.jpg",
+    "gallery": []
+  },
+
+  {
     "url": "/journal_web_25/notes/2025/10/10/tamsui/",
     "title": "10/10 國慶午後 — 在淡水的另一種慶祝方式",
     "date": "2025-10-10",
