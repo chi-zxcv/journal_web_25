@@ -2,6 +2,42 @@
 
 
   {
+    "url": "/journal_web_25/notes/2025/10/20/typhoon-day/",
+    "title": "【颱風日的反思】風吹亂的，不只是天氣",
+    "date": "2025-10-20",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "桃園",
+    "location": "",
+    "tags": ["颱風","生活","回憶","火鍋","蘆筍汁","反思"],
+    "summary": "今天的風雨太真實了，像是提醒我生活不會總如預期；但在一杯蘆筍汁裡，卻又找回了久違的溫度。",
+    "cover": "/assets/images/2025-10-20-typhoon-day/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/19/halloween-reflection/",
+    "title": "【日常反思】萬聖節的南瓜與時間的流動",
+    "date": "2025-10-19",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "台灣",
+    "location": "",
+    "tags": ["生活","反思","時間","萬聖節","全聯"],
+    "summary": "在全聯看到萬聖節的南瓜燈與蜘蛛網裝飾，突然發現時間又往前走了一大步。節慶不只是日曆上的符號，也是一種提醒——我們都在時間裡慢慢變化。",
+    "cover": "/assets/images/2025-10-19-halloween-reflection/cover.jpg",
+    "gallery": []
+  },
+
+  {
     "url": "/journal_web_25/notes/2025/10/18/tamsui-heritage/",
     "title": "【走讀淡水】河畔光影：走近淡水金色水岸，走進河港繁華過往",
     "date": "2025-10-18",
@@ -160,6 +196,42 @@
     "tags": ["國慶","淡水","出遊","生活紀錄"],
     "summary": "國慶日的午後，我們沒有升旗、沒有煙火，選擇在陽光與海風裡用另一種方式紀念這一天。",
     "cover": "/assets/images/2025-10-10-tamsui/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/06/douliu-peach/",
+    "title": "【返鄉記事】雲林斗六：二十年的仙桃樹與家的季節",
+    "date": "2025-10-06",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "life",
+    "country": "TW",
+    "city": "雲林縣斗六市",
+    "location": "",
+    "tags": ["雲林","斗六","家庭","農園","仙桃樹","回鄉"],
+    "summary": "回到斗六，幫外公修仙桃樹。這棵陪伴家族二十年的樹，如今成了歲月的見證。枝葉繁茂、果實香甜，也像時間一樣，需要被整理、修剪與珍惜。",
+    "cover": "/assets/images/2025-10-06-douliu-peach/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/05/dounan-midautumn/",
+    "title": "【返鄉記事】斗南中秋：月光下的笑聲與阿嬤的毛巾操",
+    "date": "2025-10-05",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "life",
+    "country": "TW",
+    "city": "雲林縣斗南鎮",
+    "location": "",
+    "tags": ["雲林","斗南","中秋節","家庭","長輩","活動","協會"],
+    "summary": "回到斗南過中秋，看著阿嬤上台表演毛巾操，笑聲與掌聲交錯。那一刻，我感受到的不只是節慶，而是一種家的延續與社區的溫度。",
+    "cover": "/assets/images/2025-10-05-dounan-midautumn/cover.jpg",
     "gallery": []
   },
 

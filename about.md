@@ -5,7 +5,6 @@ title: 關於
 
 <!-- Hero 區塊 -->
 <section class="about-hero">
-  <h1>嗨，我是工程師，也是在路上的玩家</h1>
   <!-- 放在 Hero 內標題旁 -->
 <h1>
   <svg class="icon icon-lg icon-accent"><use href="#icon-engineer"></use></svg>
