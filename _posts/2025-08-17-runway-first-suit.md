@@ -3,7 +3,7 @@ layout: post
 title: "第一次穿上西裝走秀｜突破自己"
 date: 2025-08-17
 type: event
-tags: [西裝, 走秀, 自信, 成長]
+tags: [西裝, 走秀, 自信, 成長,青島教室]
 summary: 第一次在那麼多人的場合走秀，穿上西裝的瞬間被自己帥到。怦然心跳、腎上腺素拉滿——原來勇敢踏出去，就會看到全新的自己。
 cover: /assets/images/2025-08-17-runway/cover.jpg
 gallery_dir: /assets/images/2025-08-17-runway/

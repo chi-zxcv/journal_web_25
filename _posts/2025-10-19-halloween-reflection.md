@@ -5,7 +5,7 @@ date: 2025-10-19
 type: reflection
 country: TW
 city: 台灣
-tags: [生活, 反思, 時間, 萬聖節, 全聯]
+tags: [生活, 反思, 時間, 萬聖節]
 summary: 在全聯看到萬聖節的南瓜燈與蜘蛛網裝飾，突然發現時間又往前走了一大步。節慶不只是日曆上的符號，也是一種提醒——我們都在時間裡慢慢變化。
 cover: /assets/images/2025-10-19-halloween-reflection/cover.jpg
 gallery_dir: /assets/images/2025-10-19-halloween-reflection/
@@ -45,7 +45,6 @@ gallery_dir: /assets/images/2025-10-19-halloween-reflection/
     {% endif %}
   {% endfor %}
 </div>
-
 
 <style>
 .gallery {
