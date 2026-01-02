@@ -20,6 +20,60 @@
   },
 
   {
+    "url": "/journal_web_25/notes/2025/10/24/yunlin-day1/",
+    "title": "【回雲林】跨越多年的友誼",
+    "date": "2025-10-24",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "雲林",
+    "location": "",
+    "tags": ["阿嬤","友情","生活"],
+    "summary": "阿嬤每天都去社區的日照照護班，和那群閨蜜們一起聊天、做活動、分享食物。看著她們笑著分蛋糕、交換水果，我突然明白，有些友情不靠網路維繫，而是靠日常溫度延續。",
+    "cover": "/assets/images/2025-10-24-yunlin-day1/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/23/kfc-smartpickup/",
+    "title": "【肯德基與習慣】當點餐櫃檯被智能機取代的那一刻",
+    "date": "2025-10-23",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "台北車站",
+    "location": "",
+    "tags": ["日常","習慣","反思","科技"],
+    "summary": "回家的路上走進肯德基，卻發現櫃檯不見了。取而代之的是一台智能領貨機。那一刻，我突然意識到——科技改變的不只是流程，而是我們對「習慣」的依賴。",
+    "cover": "/assets/images/2025-10-29-kfc-smartpickup/cover.jpg",
+    "gallery": []
+  },
+
+  {
+    "url": "/journal_web_25/notes/2025/10/22/startup-reflection/",
+    "title": "【創業的主導權】聽完那場線上分享後的兩個想法",
+    "date": "2025-10-22",
+    "start_date": "",
+    "end_date": "",
+    "year": "2025",
+    "month": "10",
+    "type": "reflection",
+    "country": "TW",
+    "city": "線上研討",
+    "location": "",
+    "tags": ["創業","自主","主導權","生活"],
+    "summary": "一場關於「網路創業」的線上研討，讓我重新思考工作與自由的距離。創業，不只是開公司，而是奪回自己人生的主導權。",
+    "cover": "/assets/images/2025-10-22-startup-reflection/cover.jpg",
+    "gallery": []
+  },
+
+  {
     "url": "/journal_web_25/notes/2025/10/20/typhoon-day/",
     "title": "【颱風日的反思】風吹亂的，不只是天氣",
     "date": "2025-10-20",

@@ -55,3 +55,46 @@ bundle exec jekyll serve
 - 刪除 `_layouts/default.html` 裡的 `<script src="tsparticles...">` 與初始化程式碼。
 - 或在 `index.html` 移除 `#particles-hero` 容器。
 
+
+步驟（Mac / Windows 都適用）
+1. 安裝 Ruby + Bundler
+Jekyll 是 Ruby 寫的，所以要先有 Ruby。
+macOS（建議用 Homebrew）
+brew install ruby
+gem install bundler
+
+
+Windows（建議裝 RubyInstaller）
+下載安裝 RubyInstaller
+，安裝後再執行：
+
+gem install bundler
+
+2. 進入專案資料夾
+
+解壓縮 play-notes-starter.zip，進去資料夾：
+
+cd play-notes-starter
+
+3. 安裝相依套件
+
+專案裡我已經幫你放了 Gemfile，直接跑：
+
+bundle install
+
+4. 啟動 Jekyll Server
+
+執行：
+
+bundle exec jekyll serve
+
+
+成功的話會顯示：
+
+Server running... http://127.0.0.1:4000/
+
+5. 打開瀏覽器
+
+到 http://localhost:4000
+ 就能看到網站啦！
+
